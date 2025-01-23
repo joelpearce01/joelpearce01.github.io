@@ -1,3 +1,3 @@
-#joelpearce01.github.io
+#joelpearce.github.io
 
 ## hi im Joel
