@@ -1,0 +1,75 @@
+/* General styles */
+
+body {
+    margin: 0.5%;
+  }
+  
+  /* General text */
+  html {
+    font-family: 'Helvetica neue', Arial, 'sans serif';
+    font-size: 10px;
+    background-color: #ccc;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 3em;
+    padding-left: .5em;
+  }
+
+  p, h2 {
+    margin: 0;
+  }
+
+  /* card */
+  .card {
+    width: 35em;
+    height: 22em;
+    margin: 5em auto;
+    background-color: red;
+    border: 0.2em solid black;
+    border-radius: 1.5em;
+  }
+  
+  /* header, footer */
+  .card header, .card footer {
+    height: 5em;
+  }
+
+  .card footer {
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
+    border-radius: 1.5em 1.5em 0 0;
+  }
+
+  .card footer p {
+    font-size: 1.5em;
+    line-height: 3em;
+    padding: 0.25em;
+  }
+
+  .card header {
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.1));
+    border-radius: 0 0 1.5em 1.5em;
+  }
+
+  .card header p {
+    padding: 1em .5em;
+  }
+
+  /* article */
+  .card article {
+    background-color: rgba(0,0,0,0.3);
+    height: 12em;
+  }
+
+  .card article img {
+    max-height: 100%;
+    float: right;
+    }
+
+  .card article p {
+    font-size: 1em;
+    color: #eee;
+    padding: 1em;
+  }
