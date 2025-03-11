@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url("https://use.typekit.net/afl5zkl.css");
+
+
+body {
+    background: radial-gradient(circle, #171e52, #000);
+    color: white;
+}
+
+/*
+.grid {
+    display: flex;
+}
+
+@media (max-width: 400px) {
+    .flex-grid {
+      display: block;
+    }
+
+    h1 {
+        transform: scale(0.5);
+    }
+}
+*/
+
+.top-banner {
+    position: sticky;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: "pressato-variable", sans-serif;
+    font-variation-settings: "slnt" 0, "wght" 800, "wdth" 200;
+
+    border-bottom: white solid 1px;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    background-color: black;
+    width: 100%;
+    height: 3em;
+    z-index: 9999;
+}
+
+h2 {
+    font-family: "pf-uniform", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-family: "kallisto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2em;
+    opacity: 0.6;
+}
+
+.concert-block {
+    background-color: rgba(0, 0, 0, 0);
+    margin: 5vw;
+    padding: 1vw;
+
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    position: center;
+    transition: 0.5s;
+}
+
+#conductor {
+    font-family: "noka", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.8;
+    margin: 0.1em;
+    size: 1.4em;
+}
+
+#tracklist {
+    font-family: "noka", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.8;
+    margin: 0.1em;
+    size: 1.4em;
+}
+
+.concert-block .h3 {
+    align-content: right inline;
+}
+
+p {
+    font-family: "noka", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+.additional-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
+    opacity: 0;
+}
+
+.concert-block::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background-image: linear-gradient(to bottom, rgb(47, 2, 43), rgb(89, 18, 148) 50%, rgb(36, 3, 23) 90%);
+    background-size: 100%;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.concert-block:hover {
+    background-color: rgb(158, 8, 120);
+    transform: scale(1.05);
+    box-shadow: 20px 0 40px rgb(158, 8, 120),
+        -40px 0 100px rgb(120, 10, 150);
+}
+
+.concert-block:hover .additional-info {
+    max-height: 100%; /* Adjust height based on content */
+    opacity: 1;
+}
