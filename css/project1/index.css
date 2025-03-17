@@ -152,7 +152,8 @@ h3 {
 
 .concert-block {
     background-color: rgba(0, 0, 0, 0);
-    margin: 5vw;
+    align-items: center;
+    margin: 2vw;
     padding: 2vw;
     width: auto;
 
@@ -322,6 +323,11 @@ footer {
 }
 
 @media (1500px >= width > 400px) {
+    .top-banner {
+        font-size: 1em;
+        height: auto;
+    }
+
     h2 {
         font-size: 1.8em;
     }
@@ -330,6 +336,10 @@ footer {
         font-size: 1.4em;
     }
     
+    .concert-block {
+        overflow: auto;
+        margin: 4vw;
+    }
 }
 
 @media (width <= 400px) {
@@ -345,5 +355,6 @@ footer {
         flex: unset;
         flex-direction: column;
         overflow: hidden;
+        margin: 1.2vw;
     }
 }
