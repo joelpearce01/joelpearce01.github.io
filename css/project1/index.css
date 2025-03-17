@@ -154,7 +154,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0);
     margin: 5vw;
     padding: 2vw;
-    width: 0.6vw;
+    width: auto;
 
     border: 5px solid rgba(255, 255, 255, 0.6);
     border-radius: 25px;
@@ -259,7 +259,6 @@ p {
     text-align: left;
     position: flex-start;
     order: 1;
-    margin-top: 0.5rem;
     text-align: left;
 }
 
@@ -313,7 +312,7 @@ footer {
 @media (min-width: 1500px) {
     /* --- */
     h2 {
-        font-size: 2.8em;
+        font-size: 4em;
     }
 
     h3 {
@@ -322,18 +321,18 @@ footer {
 
 }
 
-@media (1500px <= width < 400px) {
+@media (1500px >= width > 400px) {
     h2 {
-        font-size: 2.2em;
+        font-size: 1.8em;
     }
 
     h3 {
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
     
 }
 
-@media (width >= 400px) {
+@media (width <= 400px) {
     h2 {
         font-size: 0.8em;
     }
