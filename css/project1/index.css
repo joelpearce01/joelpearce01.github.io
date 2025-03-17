@@ -1,33 +1,90 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url("https://use.typekit.net/afl5zkl.css");
 
-
 body {
-    background: radial-gradient(circle, #171e52, #000);
+    background: radial-gradient(circle, #000, #161a34);
     color: white;
+    overflow-x: hidden;
 }
 
-/*
-.grid {
-    display: flex;
+.particle-background {
+    position: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    z-index: -1;
 }
 
-@media (max-width: 400px) {
-    .flex-grid {
-      display: block;
+.particle-background::before, .particle-background::after {
+    content: '. . .';
+    position: absolute;
+    color: white;
+    opacity: 0.8;
+
+    animation: fallingstar 20s -15s infinite alternate;
+}
+
+@keyframes fallingstar {
+    from {
+        transform: translateY(-100vh);
     }
-
-    h1 {
-        transform: scale(0.5);
+    to {
+        transform: translateY(100vh);
     }
 }
-*/
+
+.particle-background:before {
+    left: 10%;
+    width: 8px;
+    height: 8px;
+    animation: fallingstar 20s linear infinite;
+
+    text-shadow: 
+        125px 10px 10px rgba(255, 255, 255, 0.8),
+        50px 50px 10px rgba(255, 255, 255, 0.8),
+        100px 100px 10px rgba(255, 255, 255, 0.8),
+        125px 125px 10px rgba(255, 255, 255, 0.8),
+        150px 150px 10px rgba(255, 255, 255, 0.8),
+        -150px 150px 10px rgba(255, 255, 255, 0.8),
+        -250px 150px 10px rgba(255, 255, 255, 0.8),
+        -50px 150px 10px rgba(255, 255, 255, 0.8),
+        -200px 150px 10px rgba(255, 255, 255, 0.8),
+        10px -50px 10px rgba(255, 255, 255, 0.8),
+        -50px 10px 10px rgba(255, 255, 255, 0.8);
+
+    animation-duration: 20s;
+    animation-delay: -15s;
+}
+
+.particle-background:after {
+    left: 90%;
+    width: 8px;
+    height: 8px;
+    animation: fallingstar 15s linear infinite;
+
+    text-shadow: 
+        25px 10px 10px rgba(255, 255, 255, 0.8),
+        100px 50px 10px rgba(255, 255, 255, 0.8),
+        200px 100px 10px rgba(255, 255, 255, 0.8),
+        75px 125px 10px rgba(255, 255, 255, 0.8),
+        100px 150px 10px rgba(255, 255, 255, 0.8),
+        -70px 150px 10px rgba(255, 255, 255, 0.8),
+        -100px 150px 10px rgba(255, 255, 255, 0.8),
+        -50px 150px 10px rgba(255, 255, 255, 0.8),
+        -250px 150px 10px rgba(255, 255, 255, 0.8),
+        10px -50px 10px rgba(255, 255, 255, 0.8),
+        -100px 10px 10px rgba(255, 255, 255, 0.8);
+
+}
 
 .top-banner {
-    position: sticky;
-    align-items: center;
+    display: flex;
     justify-content: center;
-    font-size: 40px;
+    align-content: center;
+    position: sticky;
+    font-size: 2vw;
     font-family: "pressato-variable", sans-serif;
     font-variation-settings: "slnt" 0, "wght" 800, "wdth" 200;
 
@@ -35,21 +92,53 @@ body {
     border-collapse: separate;
     border-spacing: 0;
 
-    padding: 0;
+    padding: 0.2vw;
     margin: 0;
 
     top: 0;
     background-color: black;
     width: 100%;
-    height: 3em;
+    height: 5em;
     z-index: 9999;
 }
 
+/* glowing on text */
+@keyframes glowAnimation {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6), 0 0 15px rgba(255, 0, 255, 0.4);
+        opacity: 0.8;
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8), 0 0 45px rgba(255, 0, 255, 0.6);
+        opacity: 1;
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6), 0 0 15px rgba(255, 0, 255, 0.4);
+        opacity: 0.8;
+    }
+}
+
+.top-banner h1 {
+    animation: glowAnimation 4s infinite ease-in-out;
+}
+
+#top-webpage {
+    display: flex;
+    margin: 3rem;
+    position: center;
+    text-align: center;
+    opacity: 0.8;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+/* actual concert info */
 h2 {
     font-family: "pf-uniform", sans-serif;
     font-weight: 800;
     font-style: normal;
-    font-size: 2em;
+    font-size: 2.8em;
     letter-spacing: 2px;
 }
 
@@ -64,47 +153,76 @@ h3 {
 .concert-block {
     background-color: rgba(0, 0, 0, 0);
     margin: 5vw;
-    padding: 1vw;
+    padding: 2vw;
+    width: 0.6vw;
 
     border: 5px solid rgba(255, 255, 255, 0.6);
     border-radius: 25px;
-    position: center;
-    transition: 0.5s;
+    
+    /*
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; */
+    transition: 0.3s all ease-in-out; 
 }
 
-#conductor {
+.concert-block .concert-title {
+    /*
+    text-align: left;
+    position: left;
+    flex: 60%;
+    flex-basis: initial; */
+    position: left;
+}
+
+.concert-block .stardate {
+    /*
+    flex: 40%;
+    flex-basis: initial; */
+    position: right;
+    text-align: right;
+    transition: all 0.3s ease-in-out;
+}
+
+.stardate strong {
+    font-weight: 1600;
+}
+
+.conductor {
     font-family: "noka", sans-serif;
-    font-weight: 400;
+    font-weight: 1000;
     font-style: normal;
-    opacity: 0.8;
-    margin: 0.1em;
+    opacity: 0.6;
+    margin: 0.2em;
     size: 1.4em;
 }
 
-#tracklist {
+.tracklist {
     font-family: "noka", sans-serif;
-    font-weight: 400;
+    font-weight: 1000;
     font-style: normal;
-    opacity: 0.8;
-    margin: 0.1em;
+    opacity: 0.5;
+    margin: 0.4em;
     size: 1.4em;
-}
-
-.concert-block .h3 {
-    align-content: right inline;
 }
 
 p {
     font-family: "noka", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 1em;
+    font-size: 1.4em;
     opacity: 0.8;
 }
 
 .additional-info {
     max-height: 0;
     overflow: hidden;
+    display: inline-block;
+    flex-direction: column;
+    flex: 100%;
+    align-items: flex-end;
+    align-content: end;
     transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
     opacity: 0;
 }
@@ -113,7 +231,7 @@ p {
     content: '';
     height: 100%;
     width: 100%;
-    border-radius: 25px;
+    border-radius: 2.5em;
     background-image: linear-gradient(to bottom, rgb(47, 2, 43), rgb(89, 18, 148) 50%, rgb(36, 3, 23) 90%);
     background-size: 100%;
     background-position: 50% 100%;
@@ -122,6 +240,9 @@ p {
 }
 
 .concert-block:hover {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2vw;
     background-color: rgb(158, 8, 120);
     transform: scale(1.05);
     box-shadow: 20px 0 40px rgb(158, 8, 120),
@@ -129,6 +250,101 @@ p {
 }
 
 .concert-block:hover .additional-info {
-    max-height: 100%; /* Adjust height based on content */
+    max-height: 100%;
     opacity: 1;
+}
+
+.concert-block:hover .concert-title {
+    width: 100%;
+    text-align: left;
+    position: flex-start;
+    order: 1;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.back-to-top {
+    display: block;
+    text-align: center;
+    margin: 5rem auto;
+    padding: 1rem .5rem;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.back-to-top:hover {
+    background-color: rgb(120, 10, 150);
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: sticky;
+    bottom: 0%;
+
+    justify-content: center;
+    align-content: center;
+
+    border-top: 3px white solid;
+    border-collapse: bottom;
+    border-spacing: 0;
+
+    background-color: #000000;
+    padding: 0.1vw;
+}
+
+.bottom-strip {
+    font-family: 'noka', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: white;
+}
+
+.bottom-strip a {
+    margin: 0.8vw;
+    color: white;
+}
+
+@media (min-width: 1500px) {
+    /* --- */
+    h2 {
+        font-size: 2.8em;
+    }
+
+    h3 {
+        font-size: 1.6em;
+    }
+
+}
+
+@media (1500px <= width < 400px) {
+    h2 {
+        font-size: 2.2em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+    
+}
+
+@media (width >= 400px) {
+    h2 {
+        font-size: 0.8em;
+    }
+
+    h3 {
+        font-size: 0.8em;
+    }
+
+    .concert-block {
+        flex: unset;
+        flex-direction: column;
+        overflow: hidden;
+    }
 }
