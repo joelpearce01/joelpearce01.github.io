@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interactive element</title>
+
+    <style>
+        #intro {
+            font-size: 5em;
+            justify-content: center;
+        }
+
+        #help {
+            font-size: 2rem;
+            justify-content: center;
+        }
+
+        #thebutton {
+            background-color: crimson;
+            width: 100px;
+            height: 100px;
+            top: center;
+            left: 50%;
+            border: 3px palevioletred solid;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="intro">so basically....</h1>
+    <h2 id="help">AHHHHHHHHHHHHHHH</h2>
+
+    <button id="thebutton"></button>
+
+    <script>
+        let thebutton = document.querySelector('#thebutton');
+
+        let moved = false;
+
+        thebutton.addEventListener('click', movement)
+        
+        function movement() {
+            if (moved = false) {
+                thebutton.style = 'left: 90%;';
+                moved = true;
+            } else {
+                thebutton.style = 'left: 10%;';
+                moved = false;
+            }
+        };
+
+        // function randomColor() {
+        //     let r = Math.floor(Math.random)
+        // }
+    </script>
+
+    <p class='phoneNumber'>0000000000</p>
+    <button id="prev"><</button>
+    <button id="next">></button>
+
+    <button id="reset">reset</button>
+    <button id="submit">submit</button>
+
+    <script>
+        let prevbtn = document.querySelector('#prev');
+        let nextbtn = document.querySelector('#next');
+        let resetbtn = document.querySelector('#reset');
+        let submitbtn = document.querySelector('#submit');
+
+        let number = document.querySelector('.number');
+
+        submitbtn.addEventListener('click', submitNumber);
+        resetbtn.addEventListener('click', resetNumber);
+        prevbtn.addEventListener('click', prevNumber);
+        nextbtn.addEventListener('click', nextNumber);
+
+        function submitNumber() {
+            alert('your number is ' + number.textContent);
+        }
+
+        function resetNumber() {
+            number.textContent = Math.floor(Math.random() * (100000000-0 + 1) + 1);
+        }
+
+        function prevNumber() {
+            let num = Number(number.textContent);
+            number.textContent -= 1;
+        }
+
+        function nextNumber() {
+            let num = Number(number.textContent);
+            number.textContent += 1;
+        }
+    </script>
+</body>
+</html>

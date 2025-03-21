@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICA10 - Interactive Elements</title>
+
+    <style>
+        h1 {
+            left: 50%;
+            top: 20%;
+        }
+
+        .btn {
+            background-color: palevioletred;
+            width: 100px;
+            height: 100px;
+            border: crimson 2px solid;
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+        }
+
+        .btn:hover {
+            background-color: #e291ac;
+            border: black 3px solid;
+        }
+        
+        #nameheading {
+            font-size: 40px;
+            position: relative;
+
+            top: 20%;
+            left: 50%;
+        }
+
+        .namebox {
+            background-color: rgb(7, 38, 64);
+            border: rgb( 50, 90, 180);
+            color: white;
+
+            width: fit-content;
+            height: auto;
+            border-radius: 5px;
+            padding: 5px;
+
+            position: relative;
+            top: 20%;
+            left: 50%;
+        }
+
+        #div1 {
+            position: absolute;
+            left: 50%;
+
+            font-size: 50px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>make the button go away please,</h1>
+    <p id="nameheading"></p>
+
+    <button class="btn">CLICK ME</button>
+
+    <div class="namebox">enter nametag here</div>
+
+    <div id="div1">
+
+    </div>
+
+    <script>
+        let BIGBTN = document.querySelector('.btn');
+        let nametag = document.querySelector('.namebox');
+        let container = document.querySelector('#div1')
+
+        var name = 'name';
+        var ticks = 2;
+
+        BIGBTN.addEventListener('click', updatePosition);
+        nametag.addEventListener('click', updateName);
+
+        function updateName() {
+            let newName = prompt('enter new name');
+            if (newName) {
+                document.getElementById("nameheading").innerText = newName;
+            }
+        
+        }
+
+        function updatePosition() {
+            if (ticks > 0) {
+                x = Math.floor(Math.random() *1080);
+                y = Math.floor(Math.random() *1080);
+
+                BIGBTN.style.left = x + "px";
+                BIGBTN.style.top = y + "px";
+
+                ticks -= 1;
+            } else {
+                const para = document.createElement('p');
+                const node = document.createTextNode('Hurrah! The button is gone!');
+                para.appendChild(node);
+                container.appendChild(para);
+                
+                BIGBTN.style.opacity = 0;
+            }
+        }
+
+    </script>
+</body>
+</html>
