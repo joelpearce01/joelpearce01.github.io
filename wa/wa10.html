@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Silly story generator - WA10</title>
+
+    <style>
+      body {
+        font-family: helvetica, sans-serif;
+        background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(20, 20, 20));
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      label {
+        font-weight: bold;
+        color: white;
+      }
+
+      div {
+        padding-bottom: 20px;
+        color: white;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      .options {
+        height: auto;
+        border: white solid 2px;
+        border-radius: 20px;
+        padding: 20px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        width: 150px;
+      }
+
+      .story {
+        background: #850753;
+        color: white;
+        border: #ff8585 3px solid;
+        font-size: 1.2em;
+        font-weight: 800;
+        padding: 40px;
+        visibility: hidden;
+        width: 800px;
+        height: auto;
+        position: center;
+        margin: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="options">
+      <div>
+        <label for="customname">Enter custom name:</label>
+        <input id="customname" type="text" placeholder="" />
+      </div>
+
+      <div>
+        <label for="us">US</label
+        ><input id="us" type="radio" name="ukus" value="us" checked />
+        <label for="uk">UK</label
+        ><input id="uk" type="radio" name="ukus" value="uk" />
+      </div>
+
+      <div>
+        <button class="randomize">Generate random story</button>
+      </div>
+    </div>
+    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
+
+    <p class="story"></p>
+
+    <script>
+        // 1. COMPLETE VARIABLE AND FUNCTION DEFINITIONS
+
+        const customName = document.getElementById('customname');
+        const randomize = document.querySelector('.randomize');
+        const story = document.querySelector('.story');
+
+        function randomValueFromArray(array) {
+          const random = Math.floor(Math.random()*array.length);
+          return array[random];
+        }
+
+        // 2. RAW TEXT STRINGS
+
+        const storytext = "On a 94 fahrenheit day, :insertX: went for a walk. On their walk, they saw :insertY:, and decided to go in. When the walked inside, something incredible happened. All of a sudden, Jim Carrey was there and he :insertZ:. Then a piano that weighed 300 pounds fell from the ceiling and crushed him. Bob was there and filmed it for their instagram, got a million likes and became internet famous. The fame immediately went to Bob's head, and they became a total prick. It's ok Bob, happens to the best of us.";
+
+        const insertX = ['Willy Wonka and his Oompa Loompas', 'Meine Mutter', 'Gibby and his Goons', 'Jane', 'A non-binary person', 'Lord Farquad', 'The President of Austria', 'Logan Paul', 'A catgirl maid'];
+
+        const insertY = ['the soup kitchen', 'a pizza resturnat', 'the White House', 'the seventh circle of hell', 'a really red barn', 'Detroit', 'der Backerei', 'Hogwarts', 'Pinterest HQ'];
+
+        const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away', 'tripped and starting blaming everyone around him', 'committed a heinous crime', 'called Bob a Pathetic little prick', 'finally admitted that HE was the Zodiac Kiler', 'ate a muffin'];
+
+        // 3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
+
+        randomize.addEventListener('click', result);
+
+        function result() { 
+          let newstory = storytext;
+
+          const XItem = randomValueFromArray(insertX);
+          const YItem = randomValueFromArray(insertY);
+          const ZItem = randomValueFromArray(insertZ);
+
+          if (newstory.includes(":insertX:")) {
+            newstory = newstory.replaceAll(':insertX:', XItem);
+          } else {
+            console.log("Error - Xvar");
+          }
+
+          if (newstory.includes(":insertY:")) {
+            newstory = newstory.replaceAll(':insertY:', YItem);
+          } else {
+            console.log("Error - Yvar");
+          }
+
+          if (newstory.includes(":insertZ:")) {
+            newstory = newstory.replaceAll(':insertZ:', ZItem);
+          } else {
+            console.log("Error - Zvar");
+          }
+
+          if (customName.value !== '') {
+            const name = customName.value;
+            newstory = newstory.replaceAll('Bob', name);
+          }
+
+          if (document.getElementById("uk").checked) {
+            const weight = `${Math.round(300 / 14)} stones`;
+            const temperature = `${Math.round((94 - 32) * (5 / 9))} centigrade`;
+
+            newstory = newstory.replaceAll('94 fahrenheit', temperature);
+            newstory = newstory.replaceAll('300 pounds', weight);
+          }
+
+          story.textContent = newstory;
+          story.style.visibility = 'visible';
+        }
+    </script>
+
+  </body>
+</html>
