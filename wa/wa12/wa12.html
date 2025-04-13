@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="wa12.css">
+    <title>Random Genre Generator</title>
+</head>
+
+<body>
+    <div class="app">
+        <header>Random Genre Generator</header>
+        <section class="quotes">
+          <div class="quote-text" id="js-quote-text"></div>
+          <div class="quote-text" id="js-answer-text"></div>
+        </section>
+        <section class="controls" >
+          <button type="button" id="js-new-quote" class="new-quote button">
+            Generate a new genre!
+          </button>
+          <button type="button" id="js-tweet" class="twitter button">
+            Show me an example!
+          </button>
+          <div id="image-container"></div>
+          <!-- <a class="answer button" id="js-tweet" target="_blank" rel="noreferrer">Show me the answer!</a> -->
+        </section>
+      </div>
+      <p style="position: absolute; bottom: 5%; left: 50%; transform: translate(-50%, -50%); justify-content: center; color: white;">
+        This API was designed to display random genre, and I've grabbed another API to help find an example of the generated Genre once guessed.
+      </p>
+      <script src="wa12.js"></script>
+</body>
+</html>
