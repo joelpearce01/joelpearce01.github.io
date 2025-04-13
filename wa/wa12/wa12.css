@@ -76,25 +76,25 @@ html {
     z-index: -1;
   }
 
-  .twitter {
+  .newimagebutton {
     background-color: #1da1f2;
     text-decoration: none;
   }
   
-  .twitter:hover {
+  .newimagebutton:hover {
     background-color: #1e7fbb;
   }
   
-  .new-quote {
+  .quotebutton {
     background-color: #d2456f;
     margin-bottom: 5px;
   }
   
-  .new-quote:hover {
+  .quotebutton:hover {
     background-color: #da3ca8;
   }
   
-  .new-quote:disabled {
+  .quotebutton:disabled {
     background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
