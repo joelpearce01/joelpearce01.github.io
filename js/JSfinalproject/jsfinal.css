@@ -1,0 +1,92 @@
+html, body {
+    height: 100%;
+    width: auto;
+}
+
+body {
+    overflow: hidden;
+    background-color: #957abe;
+    color: white;
+}
+
+.container {
+    width: 80vw;
+    height: 300px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 5px solid black;
+    border-radius: 1em;
+    padding: 0.2em;
+    background-color: #e2d7f1;
+}
+
+.numSubmit {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 0.2em;
+    margin: 0.2em;
+    background-color: rgb(133, 115, 141);
+}
+
+.subButton {
+    z-index: 9999;
+}
+.inputNum {
+    width: 30px;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 0.2em;
+}
+
+.userNum {
+    position: fixed;
+    top: 20%;
+    font-size: 40px;
+    margin: -10px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: rgb(242, 242, 242);
+    padding: 10px;
+    color: black;
+}
+
+.finSubButton {
+    position: fixed;
+    top: 80%;
+    justify-content: flex-end;
+    font-size:24px;
+}
+.timer{
+    font-size: 30px;
+    color: rgb(195, 180, 216);
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    left: 43.75%;
+    margin: 100px;
+    position: absolute;
+    top: 37.5%;
+}
+
+.leaderboard {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 30px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    background-color: white;
+}
