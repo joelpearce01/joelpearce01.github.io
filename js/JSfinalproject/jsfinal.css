@@ -90,3 +90,10 @@ body {
     z-index: 0;
     background-color: white;
 }
+
+.finSubButton {
+    border: 4px purple solid;
+    border-radius: 10px;
+    color: purple;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

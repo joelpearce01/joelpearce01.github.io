@@ -17,6 +17,7 @@ submitButtons.forEach(button => {
     });
 });
 
+
 let messageCounter = 0;
 
 submitButtons.forEach(button => {
@@ -46,7 +47,7 @@ submitButtons.forEach(button => {
             } else if (messageCounter == 5) {
                 alert('is this even necessary')
             } else if (messageCounter == 6) {
-                alert('can I get a good grade if I annoy you enough')
+                alert('uggghhh since youre being lame ill stop')
             } else if (messageCounter == 7) {
                 alert('hi :3')
             } else if (messageCounter == 8) {
@@ -60,6 +61,7 @@ submitButtons.forEach(button => {
     });
 });
 
+let startupMessage = document.getElementById("startupmsg");
 let count = 0;
 
 function NumberSubmitted(input, index) {
@@ -71,9 +73,12 @@ function NumberSubmitted(input, index) {
     } else if (isNaN(input)) {
         alert('invalid input, must be a number, not a letter or a symbol please');
     } else if (input > 9) {
-        alert('must be a single digit, you dolt')
+        alert('must be a single digit, you SILLY SILLY BUFFOON')
     } else {
         count = (count + 1);
+        if (count == 1) {
+            startupMessage.textContent = 'make sure to use the mouse for optimal interaction :)';
+        }
         if (count < 10){
             alert("you have selected " + input + " as your number \nare you sure this is right?");
     
@@ -97,19 +102,20 @@ function finalSubmit() {
         alert('silly! you didn`t finish putting in your number')
         return;
     } else {
+        console.log('number submitted');
         let randomindex = Math.round(Math.random() * UserNumber.length);
 
-        while (UserNumber[randomindex] === '-') {
+        if (UserNumber[randomindex] === '-') {
             randomindex = Math.round(Math.random() * UserNumber.length);
-        }
-    
-        let num = parseInt(UserNumber[randomindex]);
-        num = (num + 1) % 10;
-        UserNumber[randomindex] = num.toString();
-        updateNumber();
-        resetTimer();
+        } else {
+            let num = parseInt(UserNumber[randomindex]);
+            num = (num + 1) % 10;
+            UserNumber[randomindex] = num.toString();
+            updateNumber();
+            resetTimer();
 
-        alert(`Number submitted! \n make sure to double check your number... \n>:)`);
+            alert(`Number submitted! \n make sure to double check your number... \n>:)`);
+        }
     }
 };
 
@@ -126,6 +132,10 @@ function updateNumber() {
     userNumDisplay.textContent = formattedNumber;
 };
 
+let minutes = document.getElementById("minutes");
+let seconds = document.getElementById("seconds");
+let milliseconds = document.getElementById("milliseconds");
+
 let startTime;
 let timerInterval;
 let leaderboard = [];
@@ -141,11 +151,11 @@ function updateTimer() {
 
     let mins = Math.floor(elapsed / 60000);
     let secs = Math.floor((elapsed % 60000) / 1000);
-    let milliseconds = Math.floor((elapsed % 1000) / 10);
+    let milli = Math.floor((elapsed % 1000) / 10);
 
     minutes.textContent = mins.toString().padStart(2, '0');
     seconds.textContent = secs.toString().padStart(2, '0');
-    milliseconds.textContent = milliseconds.toString().padStart(2, '0');
+    milliseconds.textContent = milli.toString().padStart(2, '0');
 };
 
 function resetTimer() {
