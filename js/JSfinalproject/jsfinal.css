@@ -5,8 +5,50 @@ html, body {
 
 body {
     overflow: hidden;
-    background-color: #957abe;
+    background-image: radial-gradient(rgb(178, 143, 180), rgb(84, 29, 87));
     color: white;
+}
+
+.test {
+    border: 4px rgb(84, 29, 87) solid;
+    border-radius: 10px;
+    color: rgb(84, 29, 87);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    position: flex;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    justify-content: center;
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+}
+
+.reset {
+    border: 4px rgb(84, 29, 87) solid;
+    border-radius: 10px;
+    color: rgb(84, 29, 87);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    left: -5%;
+    top: -35%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#startupmsg {
+    font-family: Arial, Helvetica, sans-serifs;
+    font-size: 18px;
+    justify-content: center;
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
 }
 
 .container {
@@ -14,32 +56,43 @@ body {
     height: 300px;
     position: fixed;
     left: 50%;
+    top: 30%;
+    display: flex;
     transform: translate(-50%);
     justify-content: center;
     align-items: center;
-    display: flex;
     border: 5px solid black;
     border-radius: 1em;
     padding: 0.2em;
+    color: black;
     background-color: #e2d7f1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .numSubmit {
     display: flex;
+    width: auto;
     flex-direction: row;
     justify-content: flex-start;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 0.5em;
     padding: 0.2em;
     margin: 0.2em;
-    background-color: rgb(133, 115, 141);
+    width: 110px;
+    background-color: rgba(84, 29, 87, 0.8);
+    font-family: Arial, Helvetica, sans-serifs;
 }
 
 .subButton {
     z-index: 9999;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 0.2em;
 }
+
 .inputNum {
-    width: 30px;
+    width: 40px;
+    height: 25px;
     font-size: 15px;
     border: 1px solid white;
     border-radius: 5px;
@@ -75,25 +128,44 @@ body {
     top: 37.5%;
 }
 
+h3 {
+    padding: 5px;
+}
+
 .leaderboard {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    margin-top: 20px;
-    padding: 10px;
+    /* position: absolute;
+    display: flex;
+    top: 20%;
+    left: 85%;
+    transform: translate(-50%, -50%); */
+    z-index: -1; 
+    background-color: white;
+    margin: 20px;
+    padding: 5px;
     border: 2px solid black;
     border-radius: 30px;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    background-color: white;
+    width: 10em;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
 }
 
 .finSubButton {
-    border: 4px purple solid;
+    border: 4px rgb(84, 29, 87) solid;
     border-radius: 10px;
-    color: purple;
+    color: rgb(84, 29, 87);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.presMSG {
+    color: white;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
 }
