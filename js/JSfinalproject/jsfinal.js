@@ -145,10 +145,6 @@ function NumberSubmitted(input, index) {
         console.log(typeof input);
         customAlert('invalid input, must be a number, not a letter or a symbol please.');
         return;
-    } else if (input === ' ') {
-        console.log(typeof input);
-        customAlert('you didn`t even type anything... \nare you even trying?');
-        return;
     } else {
         count += 1;
         if (count == 1) {
@@ -165,7 +161,6 @@ function NumberSubmitted(input, index) {
         UserNumber[index] = input;
         updateNumber();
     }
-    
 };
 
 let fincounter = 0;
@@ -209,7 +204,7 @@ function finalSubmit() {
         updateNumber();
         resetTimer();
 
-        customAlert(`Number submitted! \n make sure to double check your number... \n>:)`);
+        customAlert(`Number submitted! \nmake sure to double check your number... \n>:)`);
 
         let pressure = document.createElement('p');
         pressure.classList.add('presMSG');
@@ -268,8 +263,6 @@ function recordTime() {
     leaderboard.push(recordedTime);
     updateLeaderboard();
 };
-
-
 
 function updateLeaderboard() {
     const leaderboardDiv = document.querySelector('.leaderboard');
